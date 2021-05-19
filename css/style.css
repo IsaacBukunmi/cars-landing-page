@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reggae+One&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+    font-family: 'Patrick Hand', cursive;
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color:#F8F8F8;
+}
+
+
+h1, h2, h3, h4, h5, h6, p{
+    margin:0
+}
+
+
+:root{
+    --dark-blue: #131623;
+    --light-blue: #1C538E;
+    --white:#ffffff;
+    --black:#000000;
+    --grey:#a3a3a3;
+    --logo-font: 'Reggae One', cursive;
+}
