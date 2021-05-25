@@ -1,4 +1,4 @@
-# Izaak Blog
+# CARRS (Landing Page)
 
 CARRS is a car landing page designed to showcase the latest brands of cars in the world
 This landing page was built for udacity frontend nanodegree program, following the rubic project specification and architecture
