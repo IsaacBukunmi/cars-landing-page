@@ -28,7 +28,7 @@ nav ul{
 nav ul > li{
     list-style: none;
     cursor: pointer;
-    margin-right:50px;
+    margin-right:30px;
 }
 
 nav ul > li a{
@@ -43,6 +43,54 @@ nav ul > li a.active{
 nav ul > li:last-of-type{
     margin-right: 0px;
 }
+
+nav .menu{
+    width:35px;
+    height:28px;
+    cursor: pointer;
+    display: none;
+}
+
+.menu .bar{
+    height:5px;
+    width:100%;
+    background-color:#FFFFFF;
+    display:block;
+    border-radius: 5px;
+    transition: .3s ease;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+}
+
+.menu #first-bar{
+    transform: translateY(2px)
+}
+
+.menu #second-bar{
+    transform: translateY(6px)
+}
+
+.menu #third-bar{
+    transform: translateY(10px)
+}
+
+.toggle-menu .bar{
+    background-color: #e9a8ed;
+}
+
+.toggle-menu #first-bar{
+    transform: translateY(10px) rotate(-45deg);
+}
+
+.toggle-menu #second-bar{
+    opacity:0;
+}
+
+.toggle-menu #third-bar{
+    transform: translateY(0px) rotate(45deg);
+}
+
 
 header{
     display: flex;
@@ -61,15 +109,18 @@ header{
     left:0;
     z-index: -1;
     background-attachment: fixed;
+    padding:0px 30px;
 }
 
 header h1{
+    text-align: center;
     font-size:50px;
     letter-spacing: 1.5rem;
 }
 
 header p{
     font-size: 24px;
+    text-align: center;
 }
 
 section.car-model{
@@ -77,37 +128,31 @@ section.car-model{
     width: 100%;
     border-top:1px solid var(--white);
     border-bottom:1px solid var(--white);
+    background-position: right -10% top 50%;
+    background-size: 700px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 
 
 section.car-model .model-details{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
     margin-left: 100px;
     width:450px;
-    /* color: var(--white); */
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-left:0px;
+    padding:30px 30px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
-section.car-model .model-details.right{
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    justify-content: center;
-    height: 100%;
-    margin-left: 100px;
-    /* width:450px; */
 
-}
 
 section.car-model:nth-of-type(1){
     background-color: #E24833;
     background-image: url('../images/hyundai.png');
-    background-size: 800px auto;
     background-repeat: no-repeat;
-    background-position: right -10% top 50%;
     background-attachment: fixed;
     color: var(--white);
 }
@@ -115,9 +160,7 @@ section.car-model:nth-of-type(1){
 section.car-model:nth-of-type(2){
     background-color: #fa7d0b;
     background-image: url('../images/range-rover.png');
-    background-size: 700px auto;
     background-repeat: no-repeat;
-    background-position: right -10% top 50%;
     background-attachment: fixed;
     color: var(--white);
 }
@@ -125,9 +168,7 @@ section.car-model:nth-of-type(2){
 section.car-model:nth-of-type(3){
     background-color: #CD2616;
     background-image: url('../images/audi-red.png');
-    background-size: 700px auto;
     background-repeat: no-repeat;
-    background-position: right -10% top 50%;
     background-attachment: fixed;
     color: var(--white);
 }
@@ -135,9 +176,7 @@ section.car-model:nth-of-type(3){
 section.car-model:nth-of-type(4){
     background-color: #75767C;
     background-image: url('../images/benz-jp.png');
-    background-size: 700px auto;
     background-repeat: no-repeat;
-    background-position: right -10% top 50%;
     background-attachment: fixed;
     color: var(--white) !important;
 }
@@ -188,4 +227,68 @@ button svg{
     height: 50px;
     position: relative;
     top:-3px;
+}
+
+/*Media Queries*/
+
+@media(max-width:990px){
+    nav ul{
+        display: none;
+    }
+
+    nav .menu{
+        display: block;
+    }
+    section.car-model{
+        background-position: right -10% top 50%;
+        justify-content: flex-end;
+    }
+    section.car-model .model-details{
+        border-bottom-right-radius: 0px;
+        margin-right: 30px;
+    }
+}
+
+@media(max-width:730px){
+    section.car-model{
+        background-position: left 40% top 50%;
+        background-size: 600px auto;
+    }
+}
+
+@media(max-width:470px){
+    section.car-model{
+        background-size: 500px auto;
+    }
+
+    section.car-model .model-details{
+        width:100%;
+        border-top-right-radius: 0px;
+    }
+
+    .model-details .button-container button{
+        width:100%;
+     }
+
+    .model-details .button-container button:nth-of-type(2){
+        margin-left:0px;
+        margin-top:20px;
+        display:block;
+    }
+}
+
+@media(max-width:400px){
+    header h1{
+        letter-spacing: 1.2rem;
+    }
+
+    section.car-model{
+        background-size: 400px auto;
+    }
+}
+
+@media(max-width:320px){
+    header h1{
+        letter-spacing: 1.0rem;
+    }
 }
