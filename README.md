@@ -10,7 +10,7 @@ HTML, CSS, Vanilla JS
 This Project is hosted using github pages
 
 ## Testlink
-You can view the live version of this project here: [izaak mini blog](https://isaacbukunmi.github.io/izaak-mini-blog/)
+You can view the live version of this project here: [carrs](https://isaacbukunmi.github.io/cars-landing-page/)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

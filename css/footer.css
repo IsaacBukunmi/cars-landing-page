@@ -3,6 +3,7 @@ footer {
     color: var(--white);
     padding: 5vh 20px 5vh 20px;
     text-align: center;
+    font-size: 20px;
   }
   
   .social-media-links {
