@@ -29,6 +29,7 @@ nav ul > li{
     list-style: none;
     cursor: pointer;
     margin-right:30px;
+    font-size:24px;
 }
 
 nav ul > li a{
@@ -73,22 +74,6 @@ nav .menu{
 
 .menu #third-bar{
     transform: translateY(10px)
-}
-
-.toggle-menu .bar{
-    background-color: #e9a8ed;
-}
-
-.toggle-menu #first-bar{
-    transform: translateY(10px) rotate(-45deg);
-}
-
-.toggle-menu #second-bar{
-    opacity:0;
-}
-
-.toggle-menu #third-bar{
-    transform: translateY(0px) rotate(45deg);
 }
 
 
@@ -239,6 +224,27 @@ button svg{
     nav .menu{
         display: block;
     }
+
+    nav ul.toggle{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-around;
+        position:fixed;
+        top:70px;
+        right:0px;
+        background-color: var(--black);
+        padding:0 20px;
+        /* padding:30px; */
+        height:calc(100vh - 70px);
+    }
+
+    nav ul.toggle > li{
+        margin-right:0px;
+        font-size: 30px;
+        /* margin-bottom:40px; */
+    }
+
     section.car-model{
         background-position: right -10% top 50%;
         justify-content: flex-end;

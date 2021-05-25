@@ -1,7 +1,15 @@
 const carModels = document.querySelectorAll('.car-model')
 const carLinks = document.querySelectorAll(".car-link")
 const topButton = document.querySelector(".top-button");
+const hamburgerMenu = document.getElementById("hamburger-menu");
+const navList = document.querySelector(".nav-list");
 
+
+//Function to toggle mobile menu
+
+const toggleMenu = () => {
+    navList.classList.toggle('toggle');
+}
 
 //Function to check if element is in viewport
 const checkCurrentElement = () => {
@@ -44,6 +52,7 @@ const scrollToTop = () => {
 }
 
 //Event Listener
+hamburgerMenu.addEventListener('click', toggleMenu)
 window.addEventListener('scroll', showScrollToTopButton)
 window.addEventListener('scroll', checkCurrentElement)
 topButton.addEventListener('click', scrollToTop)
