@@ -4,13 +4,18 @@ const hamburgerMenu = document.getElementById("hamburger-menu");
 const navList = document.querySelector(".nav-list");
 
 
-//Dynamic Navigation
+//Function to toggle mobile menu
+const toggleMenu = () => {
+    navList.classList.toggle('toggle');
+}
+
+//Funtion to dynamically create navigation based on the number of sections
 const createDynamicNavigation = () => {
     for(i=0; i<carModels.length; i++){
         const getCarModelId = carModels[i].getAttribute('id');
         const linkName = getCarModelId.replace('-', ' ') //Replace any - present in id with space
         const navItems =  `
-            <li><a  href="#${getCarModelId}" class="car-link" id="${getCarModelId}-link">${linkName}</a></li>
+            <li><a class="car-link" id="${getCarModelId}-link">${linkName}</a></li>
         `
         navList.innerHTML += navItems
     }
@@ -19,10 +24,18 @@ const createDynamicNavigation = () => {
 
 createDynamicNavigation() //Calling function after DOM renders
 
-//Function to toggle mobile menu
-const toggleMenu = () => {
-    navList.classList.toggle('toggle');
-}
+
+const carLinks = document.querySelectorAll(".car-link") 
+
+//Each link to scroll to the appropiate section element 
+carLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+        console.log(e.target.id.slice(0, (e.target.id.length - 5)));
+        const elementId = e.target.id.slice(0, (e.target.id.length - 5)) //Get Section Element ID using slice
+        document.getElementById(elementId).scrollIntoView();
+    })
+})  
+
 
 //Function to check if element is in viewport
 const checkCurrentElement = () => {
@@ -35,7 +48,6 @@ const checkCurrentElement = () => {
             currentElement = model.getAttribute('id')      
         }
     })
-    const carLinks = document.querySelectorAll(".car-link") 
     carLinks.forEach((link) => {
         currentLink = link.getAttribute('id') // Get id of link and compares with current element in view
         if(`${currentElement}-link` == currentLink){
@@ -46,21 +58,6 @@ const checkCurrentElement = () => {
     })  
 }
 
-//Function to scroll to section
-const scrollToSection = () => {
-    carModels.forEach((model) => {
-        const modelTopOffset = model.offsetTop
-        window.scrollTo({
-            top: modelTopOffset,
-            behavior: 'smooth'
-        })
-    })
-}
-
-// carLinks.forEach((link) => {
-//     console.log(link)
-//     link.addEventListener('click', scrollToSection)
-// })  
 
 // Function for showing scroll to top button
 const showScrollToTopButton = () => {
