@@ -34,6 +34,7 @@ nav ul > li{
 nav ul > li a{
     text-decoration: none;
     color:var(--white);
+    text-transform: capitalize;
 }
 
 nav ul > li a.active{
@@ -139,7 +140,7 @@ section.car-model .model-details{
 
 section.car-model:nth-of-type(1){
     background-color: #E24833;
-    background-image: url('../images/hyundai.png');
+    background-image: url('../images/hyundai-min.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     color: var(--white);
