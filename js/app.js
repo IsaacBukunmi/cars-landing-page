@@ -13,7 +13,7 @@ const toggleMenu = () => {
 const createDynamicNavigation = () => {
     for(i=0; i<carModels.length; i++){
         const getCarModelId = carModels[i].getAttribute('id');
-        const linkName = getCarModelId.replace('-', ' ') //Replace any - present in id with space
+        const linkName = getCarModelId.replace('-', ' ') //Replace any '-' present in the id with space
         const navItems =  `
             <li><a class="car-link" id="${getCarModelId}-link">${linkName}</a></li>
         `
@@ -30,9 +30,8 @@ const carLinks = document.querySelectorAll(".car-link")
 //Each link to scroll to the appropiate section element 
 carLinks.forEach((link) => {
     link.addEventListener('click', (e) => {
-        console.log(e.target.id.slice(0, (e.target.id.length - 5)));
         const elementId = e.target.id.slice(0, (e.target.id.length - 5)) //Get Section Element ID using slice
-        document.getElementById(elementId).scrollIntoView();
+        document.getElementById(elementId).scrollIntoView({ behavior: 'smooth' })
     })
 })  
 
@@ -43,17 +42,21 @@ const checkCurrentElement = () => {
     const verticalPageOffset = pageYOffset // Get distance page has moved from the top
     carModels.forEach((model) => {
         const modelTopOffset = model.offsetTop // Get distance of an element from the top
-        const quaterModelHeight = (model.clientHeight/4)
-        if(verticalPageOffset >= modelTopOffset - quaterModelHeight){
-            currentElement = model.getAttribute('id')      
+        const quarterModelHeight = (model.clientHeight/4)
+        if(verticalPageOffset >= modelTopOffset - quarterModelHeight){
+            currentElement = model.getAttribute('id') 
+            model.classList.add('active')   
+        }else{
+            model.classList.remove('active')    
         }
     })
+    
     carLinks.forEach((link) => {
         currentLink = link.getAttribute('id') // Get id of link and compares with current element in view
         if(`${currentElement}-link` == currentLink){
-            link.classList.add('active');
+            link.classList.add('active')
         }else{
-            link.classList.remove('active');
+            link.classList.remove('active')
         }
     })  
 }
